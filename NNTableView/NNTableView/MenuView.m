@@ -27,7 +27,9 @@
     self = [super initWithFrame:CGRectMake(0, 0, SCREEN.width, SCREEN.height)];
     if (self) {
         
-        self.backgroundColor = [UIColor colorWithRed:189/225 green:200/225 blue:23/225 alpha:0.2];
+//        self.backgroundColor = [UIColor colorWithRed:189/225 green:200/225 blue:23/225 alpha:0.2];
+        
+        self.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:0.4];
         
         
         
@@ -37,16 +39,18 @@
     return self;
 }
 - (void)otherView{
-    UIButton *btn1 = [[UIButton alloc]initWithFrame:CGRectMake(40, self.frame.size.height - 80 - 40, (SCREEN.width- 40 - 40)/2 , 40)];
+    UIButton *btn1 = [[UIButton alloc]initWithFrame:CGRectMake(40, self.frame.size.height - 80 - 40*2 - 3 , (SCREEN.width- 40 - 40)/2 - 5 , 40)];
     btn1.backgroundColor = [UIColor redColor];
     [btn1 setTitle:@"取消" forState:UIControlStateNormal];
-    UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectMake(40+btn1.frame.size.width, self.frame.size.height - 80 - 40, (SCREEN.width- 40 - 40)/2 , 40)];
+    UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectMake(40+btn1.frame.size.width + 10, btn1.frame.origin.y, (SCREEN.width- 40 - 40)/2 -5 , 40)];
     btn2.backgroundColor = [UIColor orangeColor];
     [btn2 setTitle:@"确定" forState:UIControlStateNormal];
     [self addSubview:btn1];
     [self addSubview:btn2];
     btn1.tag = 10;
     btn2.tag = 20;
+    btn2.layer.cornerRadius = 8;
+    btn1.layer.cornerRadius = 8;
     [btn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [btn2 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
 

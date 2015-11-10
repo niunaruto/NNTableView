@@ -19,10 +19,13 @@
     self  =[super initWithFrame:CGRectMake(40, 80, SCREEN.width- 40 - 40 , SCREEN.height - 80 - 80 - 40) style:UITableViewStylePlain];
     
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+        self.layer.cornerRadius = 8;
+        self.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.delegate =self;
         self.dataSource = self;
-        NSLog(@"======%f",self.alpha);
+        self.rowHeight = 40;
+        
+        self.tableFooterView = [self createFootView];
        self.selFlags = [[NSMutableArray alloc] initWithCapacity:COUNT];
         for (int i = 0; i < COUNT; i++)
         {
@@ -32,7 +35,12 @@
     }
     return self;
 }
-
+-(UIView*)createFootView
+{
+    UIView* footView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40+3)];
+    footView.backgroundColor=[UIColor clearColor];
+    return footView;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
