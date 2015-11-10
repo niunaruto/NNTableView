@@ -22,7 +22,7 @@
         self.backgroundColor = [UIColor redColor];
         self.delegate =self;
         self.dataSource = self;
-        
+        NSLog(@"======%f",self.alpha);
        self.selFlags = [[NSMutableArray alloc] initWithCapacity:COUNT];
         for (int i = 0; i < COUNT; i++)
         {

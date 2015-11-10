@@ -27,7 +27,8 @@
     self = [super initWithFrame:CGRectMake(0, 0, SCREEN.width, SCREEN.height)];
     if (self) {
         
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor colorWithRed:189/225 green:200/225 blue:23/225 alpha:0.2];
+        
         
         
         [self addSubview:self.tableView];
